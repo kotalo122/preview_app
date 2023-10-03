@@ -15,7 +15,11 @@ document.addEventListener('DOMContentLoaded', function(){
   const fileField = document.querySelector('input[type="file"][name="post[image]"]');
 
   // input要素で値の変化が起きた際に呼び出される関数
-  fileField.addEventListener('change', function(e){
+  fileField.addEventListener('change', function(e){ 
     console.log("input要素で値の変化がありました");
+    console.log(e.target.files[0]);
+    // 「type="file"」にイベントリスナーを登録したときに、引数としてファイル情報が含まれるEventオブジェクトを変数eから受け取る 
+    // 選択したファイルの情報は「target.filesプロパティ」に配列形式で入っているため、ファイルが1つのときは先頭の「0」から参照できる
+    const file = e.target.files[0];
   });
 });
