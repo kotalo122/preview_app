@@ -24,5 +24,18 @@ document.addEventListener('DOMContentLoaded', function(){
     // windowオブジェクトの中のURLオブジェクトに対して、引数に変数fileをセットしたcreateObjectURL()メソッドを呼び出すことで、画像データへアクセス可能なURLを生成することができる
     const blob = window.URL.createObjectURL(file);
     console.log(blob);
+    // 画像を表示するためのdiv要素を生成. createElement()メソッドは、HTML要素を生成するメソッド
+    const previewWrapper = document.createElement('div');
+    // previewWrapper 変数に setAttribute メソッドを使用して、class 属性に "preview" という属性値を設定
+    previewWrapper.setAttribute('class', 'preview');
+    // 表示する画像を生成.img要素を生成.
+    const previewImage = document.createElement('img');
+    // previewImage変数にsetAttributeメソッドを使用してclass属性に preview-imageという属性値を設定
+    previewImage.setAttribute('class', 'preview-image');
+    // setAttributeメソッドを用いて生成したimg要素のsrc属性へ変数blobを設定
+    previewImage.setAttribute('src', blob);
+     // 生成したHTMLの要素をブラウザに表示させる.appendChild()メソッドは、指定した親要素の中に要素を追加するメソッド.親要素.appendChild(追加する子要素);
+     previewWrapper.appendChild(previewImage);
+     previewList.appendChild(previewWrapper);
   });
 });
