@@ -27,12 +27,14 @@ document.addEventListener('DOMContentLoaded', function(){
 
     console.log("input要素で値の変化がありました");
     console.log(e.target.files[0]);
+   
     // 「type="file"」にイベントリスナーを登録したときに、引数としてファイル情報が含まれるEventオブジェクトを変数eから受け取る 
     // 選択したファイルの情報は「target.filesプロパティ」に配列形式で入っているため、ファイルが1つのときは先頭の「0」から参照できる
     const file = e.target.files[0];
     // windowオブジェクトの中のURLオブジェクトに対して、引数に変数fileをセットしたcreateObjectURL()メソッドを呼び出すことで、画像データへアクセス可能なURLを生成することができる
     const blob = window.URL.createObjectURL(file);
     console.log(blob);
+   
     // 画像を表示するためのdiv要素を生成. createElement()メソッドは、HTML要素を生成するメソッド
     const previewWrapper = document.createElement('div');
     // previewWrapper 変数に setAttribute メソッドを使用して、class 属性に "preview" という属性値を設定
