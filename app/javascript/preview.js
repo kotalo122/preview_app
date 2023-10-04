@@ -21,5 +21,8 @@ document.addEventListener('DOMContentLoaded', function(){
     // 「type="file"」にイベントリスナーを登録したときに、引数としてファイル情報が含まれるEventオブジェクトを変数eから受け取る 
     // 選択したファイルの情報は「target.filesプロパティ」に配列形式で入っているため、ファイルが1つのときは先頭の「0」から参照できる
     const file = e.target.files[0];
+    // windowオブジェクトの中のURLオブジェクトに対して、引数に変数fileをセットしたcreateObjectURL()メソッドを呼び出すことで、画像データへアクセス可能なURLを生成することができる
+    const blob = window.URL.createObjectURL(file);
+    console.log(blob);
   });
 });
