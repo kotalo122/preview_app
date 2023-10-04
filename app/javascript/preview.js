@@ -16,6 +16,15 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // input要素で値の変化が起きた際に呼び出される関数
   fileField.addEventListener('change', function(e){ 
+    // 古いプレビューが存在する場合は削除
+    // Document の querySelector() メソッドはHTML内でクラスが "preview" という名前の最初の要素を検索するために使用.Document の querySelector() メソッドは、指定されたセレクターまたはセレクター群に一致する、文書内の最初の Element を返します。一致するものが見つからない場合は null を返します。
+    const alreadyPreview = document.querySelector('.preview');
+    // 条件 if (alreadyPreview) は、alreadyPreview 変数が null 以外の値を持っている場合に成立します。つまり、クラス名 "preview" の要素が存在している場合に true 
+    if (alreadyPreview) {
+    // alreadyPreview.remove() を使って削除することで、ページ上の該当する要素が削除 → クラス名が "preview" の要素が存在する場合、それを削除する」
+      alreadyPreview.remove();
+    };
+
     console.log("input要素で値の変化がありました");
     console.log(e.target.files[0]);
     // 「type="file"」にイベントリスナーを登録したときに、引数としてファイル情報が含まれるEventオブジェクトを変数eから受け取る 
